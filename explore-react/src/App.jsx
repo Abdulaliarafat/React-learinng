@@ -1,19 +1,24 @@
 
 import './App.css'
+import ToDo from './assets/todo'
 
 function App() {
+  const time=50;
   
   return (
     <>
       <h1>React Coure concept</h1>
-      <Students></Students>
+      <ToDo task='learn react' isDone={true} time={time}></ToDo>
+      <ToDo task='Revise js' isDone={true} time='100'></ToDo>
+      <ToDo task='Take an nap' isDone={false}></ToDo>
+      {/* <Students></Students>
       <Students></Students>
       <Person></Person>
       <Developer name='Arafat' tech='jS'></Developer>
       <Developer name='Rahat' tech='jS'></Developer>
       <Developer name='Refat' tech='jS'></Developer>
       <Player name='tamim' runs='5000'></Player>
-      <Player name='Musfiqur' runs='5000'></Player>
+      <Player name='Musfiqur' runs='5000'></Player> */}
       
     </>
   )
