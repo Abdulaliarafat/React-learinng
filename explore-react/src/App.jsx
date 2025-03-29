@@ -1,16 +1,34 @@
-
 import './App.css'
 import ToDo from './assets/todo'
+import Actor from './assets/player'
+import Mobiles from './assets/mobils'
+
 
 function App() {
-  const time=50;
-  
+  // const time=50;
+  const players=['Sakib','Tamim','Reyad','Mash','siam','sunny']
+  const mobiles=[
+    {id:1,name:'nokiya',price:1000},
+    {id:2,name:'xaomi',price:11000},
+    {id:3,name:'Apple',price:111000},
+    {id:4,name:'samsung',price:1000}
+  ]
   return (
     <>
       <h1>React Coure concept</h1>
-      <ToDo task='learn react' isDone={true} time={time}></ToDo>
-      <ToDo task='Revise js' isDone={true} time='100'></ToDo>
-      <ToDo task='Take an nap' isDone={false}></ToDo>
+      {
+       mobiles.map(mobile=> <Mobiles key={mobile.id} product={mobile}></Mobiles>)
+      }
+     
+     {/* {
+        players.map(palyer =><Actor players={palyer}></Actor>)
+     }
+ */}
+
+
+      {/* <ToDo task='learn react' isDone={true} time={time}></ToDo>
+      <ToDo task='Revise js' isDone={true} time=''></ToDo>
+      <ToDo task='Take an nap' isDone={false}></ToDo> */}
       {/* <Students></Students>
       <Students></Students>
       <Person></Person>

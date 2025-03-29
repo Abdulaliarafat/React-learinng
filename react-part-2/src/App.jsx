@@ -1,25 +1,24 @@
-import { Suspense } from 'react'
+import { Suspense, use } from 'react'
 import './App.css'
 import Batsman from './assets/Batsman'
 import Counter from './assets/counter'
 import Users from './assets/user'
 import Friends from './assets/friends'
 import Posts from './assets/posts'
+import Player from './assets/player'
 // const fetchuser=fetch('https://jsonplaceholder.typicode.com/users')
 //                .then(res=>res.json())
 //  const fetchFriends= async()=>{
 //     const res=await fetch('https://jsonplaceholder.typicode.com/users')
 //     return res.json()
 //  }
-const fetchPosts=async()=>{
-  const res=await fetch('https://jsonplaceholder.typicode.com/posts');
-  return res.json();
-}
-
+// const fetchPosts=async()=>{
+//   const res=await fetch('https://jsonplaceholder.typicode.com/posts');
+//   return res.json();
+// }
 function App() {
   // const friendsPromise = fetchFriends();
-  const postPromise= fetchPosts()
-  
+  // const postPromise= fetchPosts()
   function handleclick(){
      alert('I am clicked')
   }
@@ -33,9 +32,10 @@ function App() {
   return (
     <>
       <h1>Vite + React</h1>
-      <Suspense fallback={<h4>Post are comming......</h4>}>
+        <Player></Player>
+      {/* <Suspense fallback={<h4>Post are comming......</h4>}>
         <Posts postPromise={postPromise}></Posts>
-      </Suspense>
+      </Suspense> */}
        {/* <Suspense fallback={<h3>@Loading.....</h3>}>
        <Users fetchuser={fetchuser}></Users>
         </Suspense>  */}
