@@ -22,7 +22,7 @@ const Countries = ({countriesPromise}) => {
 
     return (
         <div>
-            <h1>Travaling countries : {countries.length}</h1>
+            <h1>My Travaling countries : {countries.length}</h1>
             <h3>Travaled so far : {visitedCountries.length}</h3>
             <div className='visited-flag-container'>
                 {
