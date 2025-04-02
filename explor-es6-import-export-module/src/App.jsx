@@ -2,9 +2,16 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { add, differ, multi,divided as div  } from './utilitis/math/math'
 
 function App() {
   const [count, setCount] = useState(0)
+  const sum = add(2,6)
+  const subs= differ(10,1)
+  const gunful= multi(5,10)
+  const somthing=div(40,5)
+
+  console.log(sum,subs,gunful,somthing)
 
   return (
     <>
