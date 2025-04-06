@@ -8,7 +8,16 @@ function App() {
   return (
     <>
     <Navbar></Navbar>
-    <Blogs></Blogs>
+  
+    <div className="main-container flex text-center">
+      <div className="left-container w-7/10">
+      <Blogs></Blogs>
+      </div>
+      <div className="right-container w-3/10">
+       <h1>Reading time : 0</h1>
+       <h1>Bookmarked count : 0</h1>
+     </div>
+    </div>
     </>
   )
 }
