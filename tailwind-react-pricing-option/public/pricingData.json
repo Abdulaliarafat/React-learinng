@@ -1,0 +1,50 @@
+[
+    {
+      "id": 1,
+      "name": "Basic",
+      "price": "$29/month",
+      "description": "Perfect for beginners looking to stay fit.",
+      "features": [
+        "Access to gym equipment",
+        "1 group class per week",
+        "Locker room access",
+        "Open 7 days a week",
+        "Free Wi-Fi",
+        "Fitness assessment on sign-up"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Standard",
+      "popular":true,
+      "price": "$49/month",
+      "description": "Ideal for regular gym-goers who want more variety.",
+      "features": [
+        "Access to gym equipment",
+        "Unlimited group classes",
+        "Personalized workout plan",
+        "Locker room and shower access",
+        "Open 7 days a week",
+        "Access to sauna",
+        "Monthly progress tracking",
+        "Free fitness workshops"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Premium",
+      "price": "$79/month",
+      "description": "Best for fitness enthusiasts who want it all.",
+      "features": [
+        "All Standard features",
+        "5 personal training sessions/month",
+        "Nutrition consultation",
+        "Priority class booking",
+        "24/7 gym access",
+        "Massage therapy discounts",
+        "Dedicated locker",
+        "Guest passes included"
+      ]
+    }
+  ]
+  
