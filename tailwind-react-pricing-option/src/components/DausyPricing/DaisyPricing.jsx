@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DaisyPricing = ({pricing}) => {
-    console.log(pricing)
+    // console.log(pricing)
     const {name,price,features,popular}=pricing;
     return (
         <div>
