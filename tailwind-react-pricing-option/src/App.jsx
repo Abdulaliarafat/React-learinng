@@ -4,6 +4,7 @@ import './App.css'
 import DaisyNavber from './components/DaisyNvaber/DaisyNavber'
 import Navber from './components/Navber/Navber'
 import PricingOption from './PricingOption/PricingOption'
+import ReasultChart from './ReasultChart/ReasultChart'
  
 const peicingPromise=fetch('pricingData.json').then(res=>res.json())
 
@@ -18,6 +19,7 @@ function App() {
       <Suspense fallback={<span className="loading loading-spinner loading-lg"></span>}>
     <PricingOption peicingPromise={peicingPromise}></PricingOption>
       </Suspense>
+      <ReasultChart></ReasultChart>
     </main> 
     </>
   )
