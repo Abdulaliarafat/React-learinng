@@ -1,4 +1,6 @@
 import './App.css'
+import ControlFlield from './component/controlFieald/ControlFlield'
+import FromAction from './component/FromAction/FromAction'
 import SimpleFrom from './component/SimpleFrom/SimpleFrom'
 
 function App() {
@@ -7,7 +9,10 @@ function App() {
   return (
     <>
       <h1>Explor React from</h1>
-     <SimpleFrom></SimpleFrom>
+     {/* <SimpleFrom></SimpleFrom> */}
+     {/* <FromAction></FromAction> */}
+     <ControlFlield></ControlFlield>
+     
     </>
   )
 }
