@@ -44,11 +44,11 @@ const router=createBrowserRouter([
         {path:'Posts/:PostId',
           loader:({params})=>fetch(`https://jsonplaceholder.typicode.com/posts/${params.PostId}`),
           Component:PostsDitals
-        }
-
-        
-    ]
-  }   
+        },  
+    ]},  
+    {path:'*',
+      element:<h3>Not fount : 404 status</h3>
+    } 
 ])
 createRoot(document.getElementById('root')).render(
   <StrictMode>
