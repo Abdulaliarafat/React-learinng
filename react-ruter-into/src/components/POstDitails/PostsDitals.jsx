@@ -1,10 +1,14 @@
 import React from 'react';
-import { useLoaderData, useNavigate } from 'react-router';
+import { useLoaderData, useNavigate, useParams } from 'react-router';
 
 const PostsDitals = () => {
     const postData=useLoaderData()
-    console.log(postData)
+    // console.log(postData)
     const navigate=useNavigate()
+    // const {PostId}=useParams()
+    // console.log(PostId)
+    const params=useParams()
+    console.log(params.PostId)
     return (
         <div>
             <h3>{postData.title}</h3>

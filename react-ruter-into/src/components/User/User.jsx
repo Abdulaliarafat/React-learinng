@@ -1,6 +1,6 @@
 import React from 'react';
 import'./user.css'
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate} from 'react-router';
 const User = ({user}) => {
     // console.log(user)
     const{id,name,email,phone}=user
@@ -8,6 +8,7 @@ const User = ({user}) => {
     const handleNavigte=()=>{
       navigate('/')
     }
+    
     return (
         <div className='card'>
           <h3>Name: {name}</h3>
