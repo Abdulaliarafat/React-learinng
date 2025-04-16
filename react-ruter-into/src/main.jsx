@@ -9,6 +9,8 @@ import Laptops from './components/Mobiles/Laptops/Laptops'
 import Users from './components/Users/Users'
 import Users2 from './components/Users2/Users2'
 import UserDetails from './components/UserDetailds/UserDetails'
+import Posts from './components/Posts/Posts'
+import PostsDitals from './components/POstDitails/PostsDitals'
 
 const usersPromise=fetch('https://jsonplaceholder.typicode.com/users')
 .then(res=>res.json())
@@ -31,9 +33,19 @@ const router=createBrowserRouter([
           </Suspense>
         },
         {path:'Users/:UserId',
-          loader:({params})=>fetch(''),
+      loader:({params})=>
+          fetch(`https://jsonplaceholder.typicode.com/users/${params.UserId}`),
           Component:UserDetails
+        },
+        {path:'Posts',
+          loader:()=>fetch('https://jsonplaceholder.typicode.com/posts'),
+          Component:Posts
+        },
+        {path:'Posts/:PostId',
+          loader:({params})=>fetch(`https://jsonplaceholder.typicode.com/posts/${params.PostId}`),
+          Component:PostsDitals
         }
+
         
     ]
   }   
