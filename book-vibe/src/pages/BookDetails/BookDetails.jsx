@@ -10,11 +10,12 @@ const BookDetails = () => {
     console.log(oneBook)
     const handleMarkAsRead=(id)=>{
         addToStoreDB(id)
+        alert('Add to read list')
     }
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-10 mt-5 mb-5'>
             <div className='p-15 bg-slate-300 rounded-2xl flex flex-col'>
-                <img className='h-[500px] w-[400] rounded-lg flex-1' src={oneBook.image} alt="image" />
+                <img className='h-[500px] w-[400] rounded-lg flex-1 object-cover' src={oneBook.image} alt="image" />
             </div>
             <div className='p-4 space-y-3 '>
               <h3 className='font-bold text-3xl mb-2 text-red-400'>{oneBook.bookName}</h3>
@@ -30,10 +31,10 @@ const BookDetails = () => {
                 }
               </div>
               <div className='space-y-2'>
-                <p className='font-semibold'>Page no :   {oneBook.totalPages}</p>
-                <p className='font-semibold'>publisher :   {oneBook.publisher}</p>
-                <p className='font-semibold'>Year of publishing : {oneBook.yearOfPublishing}</p>
-                <p className='font-semibold'>Rating :   {oneBook.rating}</p>
+                <p className='font-semibold text-green-500'>Page no :   {oneBook.totalPages}</p>
+                <p className='font-semibold text-green-500'>publisher :   {oneBook.publisher}</p>
+                <p className='font-semibold text-green-500'>Year of publishing : {oneBook.yearOfPublishing}</p>
+                <p className='font-semibold text-green-500'>Rating :   {oneBook.rating}</p>
               </div>
               <div className='space-x-5 mt-8 '>
                 <button onClick={()=>handleMarkAsRead(id)} className='px-3 py-2 bg-blue-400 rounded-xl font-medium text-white'>Mark as Read</button>

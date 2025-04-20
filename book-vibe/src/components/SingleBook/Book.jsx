@@ -8,9 +8,9 @@ const Book = ({SingleBook}) => {
     const{bookName,image,bookId,publisher,rating,category,tags}= SingleBook;
     return (
       <Link to={`/bookDetails/${bookId}`}>
-          <div className=' md:ml-0 ml-6.5'>
-            <div className="card bg-base-100 w-90  p-6 shadow-xl">
-  <figure className='p-4 w-2/3 mx-auto bg-slate-300 rounded-2xl object-cover'>
+          <div className='md:ml-0 ml-6.5'>
+            <div className="card bg-base-100 w-90  p-6 shadow-xl ">
+  <figure className='p-4 w-2/3 mx-auto bg-slate-300 rounded-2xl '>
     <img className=' h-40 rounded-md '
       src={image}
       alt="Shoes" />
