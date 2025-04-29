@@ -1,5 +1,5 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import React, { useState } from 'react';
+import { sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth';
+import React, { useRef, useState } from 'react';
 import { auth } from '../../firebase.init';
 import { Link } from 'react-router';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -8,6 +8,8 @@ const Login = () => {
     const [success,setsuccess]=useState(false)
     const [errorMassgae,setErrorMassage]=useState('')
     const [show,setshow]=useState(false)
+    // email input
+    const emailRef=useRef()
     const handleLogin=(e)=>{
      e.preventDefault();
      const email=e.target.email.value;
@@ -18,12 +20,30 @@ const Login = () => {
      signInWithEmailAndPassword(auth,email,password)
      .then(result=>{
         console.log(result.user)
-        setsuccess(true)
+        if(!result.user.emailVerified){
+            alert('Please verified your email');
+        }
+        else{
+            setsuccess(true);
+        }
      })
      .catch(error=>{
         console.log(error)
         setErrorMassage(error.message)
      })
+    }
+    const handleResetpassword=()=>{
+        console.log(emailRef.current.value)
+        const email=emailRef.current.value;
+        setErrorMassage('')
+        // send password reset email
+        sendPasswordResetEmail(auth,email)
+        .then(()=>{
+            alert('A reset password email is sent.please chack your email')
+        })
+        .catch(error=>{
+            setErrorMassage(error.message)
+        })
     }
     return (
         <div>
@@ -32,7 +52,7 @@ const Login = () => {
                             <h1 className="text-5xl font-bold">Login now!</h1>
                             <form onSubmit={handleLogin} className="fieldset">
                                 <label className="label">Email</label>
-                                <input type="email" name='email' className="input" placeholder="Email" />
+                                <input type="email" ref={emailRef} name='email' className="input" placeholder="Email" />
                                 <label className="label">Password</label>
                                <div className='relative'>
                                <input type={show ? 'text' : 'password'} name='password'  className="input" placeholder="Password" />
@@ -42,7 +62,7 @@ const Login = () => {
                                 }
                                </button>
                                </div>
-                                <div><a className="link link-hover">Forgot password?</a></div>
+                                <div onClick={handleResetpassword}><a className="link link-hover">Forgot password?</a></div>
                                 <button className="btn btn-neutral mt-4">Login</button>
                                 <p className='mt-3 font-medium text-md'>New to this website ? please <Link className='text-blue-500 underline' to='/SignUp'>SignUp</Link></p>
                             </form>
