@@ -1,9 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router';
+// import { createUserWithEmailAndPassword } from 'firebase/auth';
+import React, { use } from 'react';
+import { Link, useNavigate } from 'react-router';
+import { AuthContext } from '../context/AuthContext';
+
+// import { auth } from '../Firebase.init';
 
 const Signup = () => {
+    const {createUser}=use(AuthContext)
+    const navigate=useNavigate('/');
     const handleSignUp=(e)=>{
     e.preventDefault()
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(name,email,password);
+    
+//  create user
+    createUser(email,password)
+    .then(result=>{
+      console.log(result);
+      navigate('/');
+    })
+    .catch(error=>{
+      console.log(error);
+    })
+    // create user
+    // createUserWithEmailAndPassword(auth,email,password)
+    // .then(result=>{
+    //     console.log(result)
+    // })
+    // .catch(error=>{
+    //     console.log(error)
+    // })
 
     }
     return (
@@ -11,14 +39,15 @@ const Signup = () => {
         <h1 className="text-3xl text-center font-bold">Sign Up!</h1>
           <div className="card-body">
             <form onSubmit={handleSignUp} className="fieldset">
+              <label className="label">Name</label>
+              <input type="text" name='name' className="input" placeholder="name" />
               <label className="label">Email</label>
               <input type="email" name='email' className="input" placeholder="Email" />
               <label className="label">Password</label>
               <input type="password" name='password' className="input" placeholder="Password" />
-              <div><a className="link link-hover">Forgot password ?</a></div>
               <button className="btn btn-neutral mt-4">Sign Up</button>
             </form>
-            <p>New to this site ? please <Link className='text-green-400 underline' to='/login'>Log In</Link></p>
+            <p>Already have an account ? please <Link className='text-green-400 underline' to='/login'>Log In</Link></p>
           </div>
         </div>
     );
