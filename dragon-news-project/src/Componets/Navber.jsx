@@ -4,7 +4,7 @@ import user from '../assets/user.png'
 const Navber = () => {
     return (
         <div className='flex
-        justify-between items-center'>
+        justify-between items-center mt-8'>
             <div className=""></div>
             <div className="nav flex gap-5 text-accent ">
                 <NavLink className='hover:bg-sky-300 hover:text-white p-2 rounded-lg' to='/'>Home</NavLink>
