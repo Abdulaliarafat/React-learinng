@@ -13,3 +13,7 @@
   *{
     font-family: "Poppins", sans-serif;
   }
+  a.active{
+    @apply bg-sky-300
+   
+  }

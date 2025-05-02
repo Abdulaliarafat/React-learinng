@@ -1,9 +1,10 @@
 import React from 'react';
+import SocalLogIn from './SocalLogIn';
 
 const RightAside = () => {
     return (
         <div>
-            <h1>Right aside</h1>
+            <SocalLogIn></SocalLogIn>
         </div>
     );
 };
