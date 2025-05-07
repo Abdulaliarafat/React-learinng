@@ -1,9 +1,10 @@
 import React from "react";
 import { CiShare2 } from "react-icons/ci";
 import { FaBookmark, FaEye, FaStar } from "react-icons/fa";
+import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
-  const {
+  const {id,
     title,
     rating,
     total_view,
@@ -43,9 +44,9 @@ const NewsCard = ({ news }) => {
           {details.length > 200 ? details.slice(0, 200) + "..." : details}
         </p>
         <div className="mt-3">
-          <span className="text-blue-600 font-semibold hover:underline cursor-pointer">
+          <Link to={`/news-details/${id}`} className="text-blue-600 font-semibold hover:underline cursor-pointer">
             Read More
-          </span>
+          </Link>
         </div>
       </div>
 

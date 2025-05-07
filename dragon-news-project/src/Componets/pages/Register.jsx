@@ -1,13 +1,17 @@
-import React, { use } from 'react';
-import { Link } from 'react-router';
+import React, { use, useState } from 'react';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../Provider/AuthProvider';
 const Register = () => {
-    const {createUser,setUser}=use(AuthContext)
-    
+    const navigate=useNavigate()
+    const {createUser,setUser,updateProfileUser}=use(AuthContext)
+    const [error,setError]=useState('');
     const handleRegisterFrom=(e)=>{
     e.preventDefault();
     const form=e.target;
     const name=form.name.value;
+    if(name.length < 5){
+        setError('Name should be more then five carector')
+    }else{setError('')}
     const photo=form.photo.value;
     const email=form.email.value;
     const password=form.password.value;
@@ -15,8 +19,18 @@ const Register = () => {
     createUser(email,password)
     .then(result=>{
         const user=result.user;
-        setUser(user)
-        alert('Register successfully')
+        updateProfileUser({displayName:name,photoURL:photo})
+        .then(()=>{
+            setUser({...user,displayName:name,photoURL:photo})
+            // setUser(user)
+            navigate('/')
+            alert('Register successfully')
+
+        })
+        .catch((error) => {
+            // console.log(error)
+            setUser(user)
+          });     
     })
     .catch((error) => {
         const errorCode = error.code;
@@ -32,6 +46,7 @@ const Register = () => {
                     <form onSubmit={handleRegisterFrom} className="form  space-y-1">
                         <label className="label">Name</label>
                         <input type="text" name='name' className="input" placeholder="Name"  required/>
+                        {error && <p className='text-red-500 font-sans'>{error}</p>}
                         <label className="label">Photo URL</label>
                         <input type="text" name='photo' className="input" placeholder="Photo URL"   required/>
                         <label className="label">Email</label>
